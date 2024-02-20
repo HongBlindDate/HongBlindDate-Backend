@@ -2,8 +2,13 @@ package hongblinddate.backend.domain.user.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
     @Id
@@ -28,5 +33,14 @@ public class User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Grade grade;
+
+    private User(String account, String email, String password, String nickName, Grade grade) {
+        this.account = account;
+        this.email = email;
+        this.password = password;
+        this.nickName = nickName;
+        this.grade = grade;
+    }
+
 }
 
