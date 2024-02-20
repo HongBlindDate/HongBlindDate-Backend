@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class Member {
 
     @Id
-    @Column(name = "user_id")
+    @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -34,7 +34,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Grade grade;
 
-    private User(String account, String email, String password, String nickName, Grade grade) {
+    private Member(String account, String email, String password, String nickName, Grade grade) {
         this.account = account;
         this.email = email;
         this.password = password;
