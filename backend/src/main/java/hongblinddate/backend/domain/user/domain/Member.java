@@ -17,10 +17,12 @@ public class Member {
     private Long id;
 
     @NotBlank
+    @Column(unique = true)
     private String account;
 
     @NotBlank
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotBlank
