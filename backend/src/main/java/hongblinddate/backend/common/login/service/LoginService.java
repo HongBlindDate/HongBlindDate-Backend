@@ -1,6 +1,7 @@
-package hongblinddate.backend.common.security;
+package hongblinddate.backend.common.login.service;
 
 import hongblinddate.backend.common.exception.AccountNotFoundException;
+import hongblinddate.backend.common.login.domain.MemberDetail;
 import hongblinddate.backend.domain.user.domain.Member;
 import hongblinddate.backend.domain.user.repository.MemberRepository;
 import lombok.AccessLevel;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
-public class MemberDetailService implements UserDetailsService {
+public class LoginService implements UserDetailsService {
 
     private final MemberRepository userRepository;
 
