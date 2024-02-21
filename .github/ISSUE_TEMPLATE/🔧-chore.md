@@ -1,7 +1,7 @@
 ---
 name: "\U0001F527 chore"
 about: chore 이슈 템플릿입니다.
-title: ''
+title: "\U0001F527"
 labels: ''
 assignees: ''
 
