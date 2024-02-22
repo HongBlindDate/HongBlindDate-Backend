@@ -1,5 +1,7 @@
 package hongblinddate.backend.domain.user.service;
 
+import hongblinddate.backend.common.exception.AccountDuplicationException;
+import hongblinddate.backend.common.exception.AccountNotFoundException;
 import hongblinddate.backend.common.exception.EmailNotFoundException;
 import hongblinddate.backend.domain.user.domain.Grade;
 import hongblinddate.backend.domain.user.domain.Member;
@@ -21,8 +23,10 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public void create(@RequestBody @Valid JoinRequest joinRequest) {
-        memberRepository.findByEmail(joinRequest.getEmail()).orElseThrow(() -> EmailNotFoundException.EXCEPTION);
+    public void create(JoinRequest joinRequest) {
+        if (memberRepository.findByAccount(joinRequest.getAccount()).isPresent()) {
+            throw AccountDuplicationException.EXCEPTION;
+        }
 
         Member member = Member.create(joinRequest, Grade.APPLICANT);
         member.passwordEncode(passwordEncoder);
