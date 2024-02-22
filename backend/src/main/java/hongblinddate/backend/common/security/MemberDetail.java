@@ -1,6 +1,6 @@
 package hongblinddate.backend.common.security;
 
-import hongblinddate.backend.domain.user.domain.Member;
+import hongblinddate.backend.domain.member.domain.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

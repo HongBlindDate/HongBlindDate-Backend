@@ -1,6 +1,6 @@
-package hongblinddate.backend.domain.user.repository;
+package hongblinddate.backend.domain.member.repository;
 
-import hongblinddate.backend.domain.user.domain.Member;
+import hongblinddate.backend.domain.member.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

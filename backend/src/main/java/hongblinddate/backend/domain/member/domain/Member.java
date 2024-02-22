@@ -1,6 +1,6 @@
-package hongblinddate.backend.domain.user.domain;
+package hongblinddate.backend.domain.member.domain;
 
-import hongblinddate.backend.domain.user.dto.request.JoinRequest;
+import hongblinddate.backend.domain.member.dto.request.JoinRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AccessLevel;
@@ -45,6 +45,10 @@ public class Member {
         this.password = passwordEncoder.encode(this.password);
     }
 
+    public void updateGrade(Grade newGrade) {
+        this.grade = newGrade;
+    }
+
     public void updateRefreshToken(String updateRefreshToken) {
         this.refreshToken = updateRefreshToken;
     }
@@ -63,6 +67,10 @@ public class Member {
                 joinRequest.getEmail(),
                 joinRequest.getNickName(),
                 grade);
+    }
+
+    public static Member createTestMember(String account, String password, String email, String nickName, Grade grade) {
+        return new Member(account, password, email, nickName, grade);
     }
 
 }

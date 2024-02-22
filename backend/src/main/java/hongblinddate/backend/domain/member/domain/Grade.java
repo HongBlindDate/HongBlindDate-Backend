@@ -1,4 +1,4 @@
-package hongblinddate.backend.domain.user.domain;
+package hongblinddate.backend.domain.member.domain;
 
 import lombok.Getter;
 

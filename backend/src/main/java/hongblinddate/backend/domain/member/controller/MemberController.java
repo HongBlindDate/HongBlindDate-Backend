@@ -1,7 +1,7 @@
-package hongblinddate.backend.domain.user.controller;
+package hongblinddate.backend.domain.member.controller;
 
-import hongblinddate.backend.domain.user.dto.request.JoinRequest;
-import hongblinddate.backend.domain.user.service.MemberService;
+import hongblinddate.backend.domain.member.dto.request.JoinRequest;
+import hongblinddate.backend.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
