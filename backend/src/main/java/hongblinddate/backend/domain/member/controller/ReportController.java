@@ -34,7 +34,7 @@ public class ReportController {
         return ResponseEntity.ok(reportsWithSuspension);
     }
 
-    @PostMapping("/{reportId}/resolve") // 신고 해결 API. 신고의 상태를 대기에서 처리나 기각으로 변경.
+    @PatchMapping("/{reportId}/resolve") // 신고 해결 API. 신고의 상태를 대기에서 처리나 기각으로 변경.
     public ResponseEntity<?> resolveReport(@PathVariable Long reportId,
                                            @RequestBody ReportResolutionRequest request) {
         reportService.resolveReport(reportId, request.getStatus());

@@ -6,5 +6,4 @@ import lombok.Getter;
 @Getter
 public class ReportResolutionRequest {
     private ReportStatus status;
-    private String actionTaken;
 }
