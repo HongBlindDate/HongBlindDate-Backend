@@ -1,6 +1,6 @@
-package hongblinddate.backend.common.jwt.filter;
+package hongblinddate.backend.common.auth.jwt.filter;
 
-import hongblinddate.backend.common.jwt.service.JwtService;
+import hongblinddate.backend.common.auth.jwt.service.JwtService;
 import hongblinddate.backend.domain.member.domain.Member;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import jakarta.servlet.FilterChain;

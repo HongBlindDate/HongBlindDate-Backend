@@ -1,4 +1,4 @@
-package hongblinddate.backend.common.login.handler;
+package hongblinddate.backend.common.auth.login.handler;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

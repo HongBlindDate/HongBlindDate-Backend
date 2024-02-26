@@ -1,4 +1,4 @@
-package hongblinddate.backend.common.login.filter;
+package hongblinddate.backend.common.auth.login.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;

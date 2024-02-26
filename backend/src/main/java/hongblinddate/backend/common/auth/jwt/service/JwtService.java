@@ -1,4 +1,4 @@
-package hongblinddate.backend.common.jwt.service;
+package hongblinddate.backend.common.auth.jwt.service;
 
 
 import com.auth0.jwt.JWT;

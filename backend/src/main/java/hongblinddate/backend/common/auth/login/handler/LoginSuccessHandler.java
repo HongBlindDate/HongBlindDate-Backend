@@ -1,6 +1,6 @@
-package hongblinddate.backend.common.login.handler;
+package hongblinddate.backend.common.auth.login.handler;
 
-import hongblinddate.backend.common.jwt.service.JwtService;
+import hongblinddate.backend.common.auth.jwt.service.JwtService;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

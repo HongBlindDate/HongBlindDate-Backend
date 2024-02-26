@@ -1,12 +1,12 @@
 package hongblinddate.backend.common.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hongblinddate.backend.common.jwt.filter.JwtAuthenticationProcessingFilter;
-import hongblinddate.backend.common.jwt.service.JwtService;
-import hongblinddate.backend.common.login.filter.AccountPasswordAuthenticationFilter;
-import hongblinddate.backend.common.login.handler.LoginFailureHandler;
-import hongblinddate.backend.common.login.handler.LoginSuccessHandler;
-import hongblinddate.backend.common.login.service.LoginService;
+import hongblinddate.backend.common.auth.jwt.filter.JwtAuthenticationProcessingFilter;
+import hongblinddate.backend.common.auth.jwt.service.JwtService;
+import hongblinddate.backend.common.auth.login.filter.AccountPasswordAuthenticationFilter;
+import hongblinddate.backend.common.auth.login.handler.LoginFailureHandler;
+import hongblinddate.backend.common.auth.login.handler.LoginSuccessHandler;
+import hongblinddate.backend.common.auth.login.service.LoginService;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

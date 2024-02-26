@@ -1,4 +1,4 @@
-package hongblinddate.backend.common.login.domain;
+package hongblinddate.backend.common.auth.login.domain;
 
 import hongblinddate.backend.domain.member.domain.Grade;
 import hongblinddate.backend.domain.member.domain.Member;

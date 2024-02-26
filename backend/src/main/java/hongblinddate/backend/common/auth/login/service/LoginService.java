@@ -1,7 +1,7 @@
-package hongblinddate.backend.common.login.service;
+package hongblinddate.backend.common.auth.login.service;
 
 import hongblinddate.backend.common.exception.AccountNotFoundException;
-import hongblinddate.backend.common.login.domain.MemberDetails;
+import hongblinddate.backend.common.auth.login.domain.MemberDetails;
 import hongblinddate.backend.domain.member.domain.Member;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.AccessLevel;
