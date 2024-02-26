@@ -1,6 +1,5 @@
-package hongblinddate.backend.domain.user.dto.request;
+package hongblinddate.backend.domain.member.dto.request;
 
-import hongblinddate.backend.domain.user.domain.Grade;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;

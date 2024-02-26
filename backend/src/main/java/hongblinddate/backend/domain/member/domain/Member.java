@@ -1,6 +1,6 @@
-package hongblinddate.backend.domain.user.domain;
+package hongblinddate.backend.domain.member.domain;
 
-import hongblinddate.backend.domain.user.dto.request.JoinRequest;
+import hongblinddate.backend.domain.member.dto.request.JoinRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AccessLevel;

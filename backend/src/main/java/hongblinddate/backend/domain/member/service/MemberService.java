@@ -1,18 +1,14 @@
-package hongblinddate.backend.domain.user.service;
+package hongblinddate.backend.domain.member.service;
 
 import hongblinddate.backend.common.exception.AccountDuplicationException;
-import hongblinddate.backend.common.exception.AccountNotFoundException;
-import hongblinddate.backend.common.exception.EmailNotFoundException;
-import hongblinddate.backend.domain.user.domain.Grade;
-import hongblinddate.backend.domain.user.domain.Member;
-import hongblinddate.backend.domain.user.dto.request.JoinRequest;
-import hongblinddate.backend.domain.user.repository.MemberRepository;
-import jakarta.validation.Valid;
+import hongblinddate.backend.domain.member.domain.Grade;
+import hongblinddate.backend.domain.member.domain.Member;
+import hongblinddate.backend.domain.member.dto.request.JoinRequest;
+import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @RequiredArgsConstructor
