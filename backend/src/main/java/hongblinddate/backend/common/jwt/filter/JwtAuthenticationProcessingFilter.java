@@ -1,8 +1,8 @@
 package hongblinddate.backend.common.jwt.filter;
 
 import hongblinddate.backend.common.jwt.service.JwtService;
-import hongblinddate.backend.domain.user.domain.Member;
-import hongblinddate.backend.domain.user.repository.MemberRepository;
+import hongblinddate.backend.domain.member.domain.Member;
+import hongblinddate.backend.domain.member.repository.MemberRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,10 +56,12 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
 
     public void checkRefreshTokenAndReIssueAccessToken(HttpServletResponse response, String refreshToken) {
         memberRepository.findByRefreshToken(refreshToken)
-                .ifPresent(user -> {
-                    String reIssuedRefreshToken = reIssueRefreshToken(user);
-                    jwtService.sendAccessAndRefreshToken(response, jwtService.createAccessToken(user.getEmail()),
+                .ifPresentOrElse(member -> {
+                    String reIssuedRefreshToken = reIssueRefreshToken(member);
+                    jwtService.sendAccessAndRefreshToken(response, jwtService.createAccessToken(member.getAccount(), member.getGrade().getDescription()),
                             reIssuedRefreshToken);
+                }, () -> {
+                    log.info("엑세스 토큰 재발급 실패");
                 });
     }
 
@@ -83,15 +85,15 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     }
 
     public void saveAuthentication(Member myMember) {
-        UserDetails userDetailsUser = org.springframework.security.core.userdetails.User.builder()
-                .username(myMember.getEmail())
+        UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
+                .username(myMember.getAccount())
                 .password(myMember.getPassword())
-                .roles(myMember.getGrade().name())
+                .roles(myMember.getGrade().getDescription())
                 .build();
 
         Authentication authentication =
-                new UsernamePasswordAuthenticationToken(userDetailsUser, null,
-                        authoritiesMapper.mapAuthorities(userDetailsUser.getAuthorities()));
+                new UsernamePasswordAuthenticationToken(userDetails, null,
+                        authoritiesMapper.mapAuthorities(userDetails.getAuthorities()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
