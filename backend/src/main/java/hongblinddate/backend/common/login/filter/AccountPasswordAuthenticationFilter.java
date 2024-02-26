@@ -47,7 +47,7 @@ public class AccountPasswordAuthenticationFilter extends AbstractAuthenticationP
         String account = usernamePasswordMap.get(USERNAME_KEY);
         String password = usernamePasswordMap.get(PASSWORD_KEY);
 
-        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(account, password);
+        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(account, password, null);
         return this.getAuthenticationManager().authenticate(authRequest);
 
     }
