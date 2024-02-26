@@ -7,7 +7,7 @@ import hongblinddate.backend.common.login.filter.AccountPasswordAuthenticationFi
 import hongblinddate.backend.common.login.handler.LoginFailureHandler;
 import hongblinddate.backend.common.login.handler.LoginSuccessHandler;
 import hongblinddate.backend.common.login.service.LoginService;
-import hongblinddate.backend.domain.user.repository.MemberRepository;
+import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
