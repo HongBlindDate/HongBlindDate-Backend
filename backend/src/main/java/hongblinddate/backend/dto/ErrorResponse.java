@@ -11,24 +11,24 @@ import javax.lang.model.type.ErrorType;
 
 @Getter
 public class ErrorResponse extends BaseResponse {
-	private final String message;
+ 	private final String message;
 
 	@Builder
-	private ErrorResponse(HttpStatusCode httpStatusCode, String message) {
-		super(false, httpStatusCode);
+	private ErrorResponse(HttpStatus httpStatus, String message) {
+		super(false, httpStatus);
 		this.message = message;
 	}
 
 	public static ErrorResponse of(ErrorCode errorCode) {
 		return ErrorResponse.builder()
-			.httpStatusCode(errorCode.getHttpStatus())
+			.httpStatus(errorCode.getHttpStatus())
 			.message(errorCode.getMessage())
 			.build();
 	}
 
 	public static ErrorResponse of(HttpStatus status, String message) {
 		return ErrorResponse.builder()
-			.httpStatusCode(status)
+			.httpStatus(status)
 			.message(message)
 			.build();
 	}

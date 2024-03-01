@@ -15,15 +15,15 @@ public class DataResponse<T> extends BaseResponse {
 	protected T data;
 
 	@Builder
-	public DataResponse(boolean isSuccess, HttpStatusCode statusCode, T data) {
-		super(isSuccess, statusCode);
+	public DataResponse(boolean isSuccess, HttpStatus httpStatus, T data) {
+		super(isSuccess, httpStatus);
 		this.data = data;
 	}
 
 	public static <T> DataResponse<T> ok(T data) {
 		return DataResponse.<T>builder()
 			.isSuccess(true)
-			.statusCode(HttpStatus.OK)
+			.httpStatus(HttpStatus.OK)
 			.data(data)
 			.build();
 	}
@@ -31,7 +31,7 @@ public class DataResponse<T> extends BaseResponse {
 	public static <T> DataResponse<T> ok() {
 		return DataResponse.<T>builder()
 			.isSuccess(true)
-			.statusCode(HttpStatus.OK)
+			.httpStatus(HttpStatus.OK)
 			.build();
 	}
 }
