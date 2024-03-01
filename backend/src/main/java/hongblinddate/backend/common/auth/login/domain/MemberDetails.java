@@ -2,6 +2,7 @@ package hongblinddate.backend.common.auth.login.domain;
 
 import hongblinddate.backend.domain.member.domain.Grade;
 import hongblinddate.backend.domain.member.domain.Member;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,57 +10,57 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class MemberDetails implements UserDetails {
-    private final Member member;
+	private final Member member;
 
-    public MemberDetails(Member member) {
-        this.member = member;
-    }
+	public MemberDetails(Member member) {
+		this.member = member;
+	}
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        Collection<GrantedAuthority> collection = new ArrayList<>();
+		Collection<GrantedAuthority> collection = new ArrayList<>();
 
-        collection.add((GrantedAuthority) () -> member.getGrade().getDescription());
+		collection.add((GrantedAuthority)() -> member.getGrade().getDescription());
 
-        return collection;
-    }
+		return collection;
+	}
 
-    @Override
-    public String getPassword() {
+	@Override
+	public String getPassword() {
 
-        return member.getPassword();
-    }
+		return member.getPassword();
+	}
 
-    @Override
-    public String getUsername() {
+	@Override
+	public String getUsername() {
 
-        return member.getAccount();
-    }
+		return member.getAccount();
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
+	@Override
+	public boolean isAccountNonExpired() {
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
+	@Override
+	public boolean isAccountNonLocked() {
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
+	@Override
+	public boolean isCredentialsNonExpired() {
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        if (member.getGrade() == Grade.BANNED) {
-            return false;
-        }
-        return true;
-    }
+	@Override
+	public boolean isEnabled() {
+		if (member.getGrade() == Grade.BANNED) {
+			return false;
+		}
+		return true;
+	}
 }

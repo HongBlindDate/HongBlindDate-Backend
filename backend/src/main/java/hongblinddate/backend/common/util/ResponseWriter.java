@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ResponseWriter {
 
-	private static final String CHARACTER_ENCODING  = "utf-8";
+	private static final String CHARACTER_ENCODING = "utf-8";
 	private static final String CONTENT_TYPE = "application/json";
 
 	public static void write(HttpServletResponse response, BaseResponse data) {

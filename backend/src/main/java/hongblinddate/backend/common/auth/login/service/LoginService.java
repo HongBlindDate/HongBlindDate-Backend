@@ -6,6 +6,7 @@ import hongblinddate.backend.domain.member.domain.Member;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -14,13 +15,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public class LoginService implements UserDetailsService {
 
-    private final MemberRepository userRepository;
+	private final MemberRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String account){
-        Member member = userRepository
-                .findByAccount(account).orElseThrow(() -> AccountNotFoundException.EXCEPTION);
+	@Override
+	public UserDetails loadUserByUsername(String account) {
+		Member member = userRepository
+			.findByAccount(account).orElseThrow(() -> AccountNotFoundException.EXCEPTION);
 
-        return new MemberDetails(member);
-    }
+		return new MemberDetails(member);
+	}
 }

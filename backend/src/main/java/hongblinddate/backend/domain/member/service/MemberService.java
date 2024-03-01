@@ -6,6 +6,7 @@ import hongblinddate.backend.domain.member.domain.Member;
 import hongblinddate.backend.domain.member.dto.request.JoinRequest;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,17 +16,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class MemberService {
 
-    private final PasswordEncoder passwordEncoder;
-    private final MemberRepository memberRepository;
+	private final PasswordEncoder passwordEncoder;
+	private final MemberRepository memberRepository;
 
-    @Transactional
-    public void create(JoinRequest joinRequest) {
-        if (memberRepository.findByAccount(joinRequest.getAccount()).isPresent()) {
-            throw AccountDuplicationException.EXCEPTION;
-        }
+	@Transactional
+	public void create(JoinRequest joinRequest) {
+		if (memberRepository.findByAccount(joinRequest.getAccount()).isPresent()) {
+			throw AccountDuplicationException.EXCEPTION;
+		}
 
-        Member member = Member.create(joinRequest, Grade.APPLICANT);
-        member.passwordEncode(passwordEncoder);
-        memberRepository.save(member);
-    }
+		Member member = Member.create(joinRequest, Grade.APPLICANT);
+		member.passwordEncode(passwordEncoder);
+		memberRepository.save(member);
+	}
 }
