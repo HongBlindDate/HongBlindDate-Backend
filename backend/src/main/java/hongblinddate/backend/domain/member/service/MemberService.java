@@ -1,5 +1,6 @@
 package hongblinddate.backend.domain.member.service;
 
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.common.exception.AccountDuplicationException;
 import hongblinddate.backend.domain.member.domain.Grade;
 import hongblinddate.backend.domain.member.domain.Member;
@@ -20,13 +21,15 @@ public class MemberService {
 	private final MemberRepository memberRepository;
 
 	@Transactional
-	public void create(JoinRequest joinRequest) {
+	public CustomResponse<?> create(JoinRequest joinRequest) {
 		if (memberRepository.findByAccount(joinRequest.getAccount()).isPresent()) {
 			throw AccountDuplicationException.EXCEPTION;
 		}
-
+	
 		Member member = Member.create(joinRequest, Grade.APPLICANT);
 		member.passwordEncode(passwordEncoder);
 		memberRepository.save(member);
+
+		return CustomResponse.ok();
 	}
 }

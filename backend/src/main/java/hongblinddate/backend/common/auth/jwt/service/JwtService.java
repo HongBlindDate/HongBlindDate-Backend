@@ -1,6 +1,7 @@
 package hongblinddate.backend.common.auth.jwt.service;
 
 import hongblinddate.backend.common.auth.jwt.dto.AccessAndRefreshTokenResponse;
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.common.properties.JwtProperties;
 import hongblinddate.backend.common.util.ResponseWriter;
 import hongblinddate.backend.domain.member.domain.Member;
@@ -11,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -113,7 +113,7 @@ public class JwtService {
 	public void setAccessAndRefreshTokenBody(HttpServletResponse response, String accessToken, String refreshToken) {
 		AccessAndRefreshTokenResponse accessAndRefreshTokenResponse = AccessAndRefreshTokenResponse.create(accessToken,
 			refreshToken);
-		ResponseEntity<AccessAndRefreshTokenResponse> dataResponse = ResponseEntity.ok(accessAndRefreshTokenResponse);
+		CustomResponse<AccessAndRefreshTokenResponse> dataResponse = CustomResponse.ok(accessAndRefreshTokenResponse);
 
 		ResponseWriter.write(response, dataResponse);
 	}

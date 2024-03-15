@@ -1,13 +1,11 @@
 package hongblinddate.backend.domain.member.controller;
 
-import java.util.Objects;
-
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.domain.member.dto.request.JoinRequest;
 import hongblinddate.backend.domain.member.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,9 +16,7 @@ public class MemberController {
 	private final MemberService memberService;
 
 	@PostMapping("/join")
-	public ResponseEntity<Objects> join(@RequestBody @Valid JoinRequest joinRequest) {
-		memberService.create(joinRequest);
-
-		return ResponseEntity.ok().build();
+	public CustomResponse<?> join(@RequestBody @Valid JoinRequest joinRequest) {
+		return memberService.create(joinRequest);
 	}
 }
