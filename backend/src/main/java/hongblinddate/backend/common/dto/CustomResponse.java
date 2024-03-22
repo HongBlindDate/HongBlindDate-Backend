@@ -35,7 +35,7 @@ public class CustomResponse<T>{
 	}
 
 	public static <T> CustomResponse<T> error(CustomException e) {
-		return new CustomResponse<>(e.getErrorCode().getHttpStatus().value(), null, e.getMessage());
+		return new CustomResponse<>(e.getErrorCode().getHttpStatus().value(), null, e.getErrorCode().getMessage());
 	}
 
 }

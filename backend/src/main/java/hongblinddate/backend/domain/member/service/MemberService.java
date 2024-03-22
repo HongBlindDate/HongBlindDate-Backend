@@ -22,7 +22,7 @@ public class MemberService {
 
 	@Transactional
 	public CustomResponse<?> create(JoinRequest joinRequest) {
-		if (memberRepository.findByAccount(joinRequest.getAccount()).isPresent()) {
+		if (memberRepository.existsByAccount(joinRequest.getAccount())) {
 			throw AccountDuplicationException.EXCEPTION;
 		}
 	
