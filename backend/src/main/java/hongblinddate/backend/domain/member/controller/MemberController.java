@@ -1,5 +1,6 @@
 package hongblinddate.backend.domain.member.controller;
 
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.domain.member.dto.request.JoinRequest;
 import hongblinddate.backend.domain.member.service.MemberService;
 import jakarta.validation.Valid;
@@ -15,7 +16,7 @@ public class MemberController {
 	private final MemberService memberService;
 
 	@PostMapping("/join")
-	public void join(@RequestBody @Valid JoinRequest joinRequest) {
-		memberService.create(joinRequest);
+	public CustomResponse<?> join(@RequestBody @Valid JoinRequest joinRequest) {
+		return memberService.create(joinRequest);
 	}
 }

@@ -1,11 +1,11 @@
 package hongblinddate.backend.common.auth.jwt.service;
 
 import hongblinddate.backend.common.auth.jwt.dto.AccessAndRefreshTokenResponse;
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.common.properties.JwtProperties;
 import hongblinddate.backend.common.util.ResponseWriter;
 import hongblinddate.backend.domain.member.domain.Member;
 import hongblinddate.backend.domain.member.repository.MemberRepository;
-import hongblinddate.backend.dto.DataResponse;
 import io.jsonwebtoken.Jwts;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -113,7 +113,7 @@ public class JwtService {
 	public void setAccessAndRefreshTokenBody(HttpServletResponse response, String accessToken, String refreshToken) {
 		AccessAndRefreshTokenResponse accessAndRefreshTokenResponse = AccessAndRefreshTokenResponse.create(accessToken,
 			refreshToken);
-		DataResponse<AccessAndRefreshTokenResponse> dataResponse = DataResponse.ok(accessAndRefreshTokenResponse);
+		CustomResponse<AccessAndRefreshTokenResponse> dataResponse = CustomResponse.ok(accessAndRefreshTokenResponse);
 
 		ResponseWriter.write(response, dataResponse);
 	}

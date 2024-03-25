@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import hongblinddate.backend.dto.BaseResponse;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ResponseWriter {
@@ -13,7 +12,7 @@ public class ResponseWriter {
 	private static final String CHARACTER_ENCODING = "utf-8";
 	private static final String CONTENT_TYPE = "application/json";
 
-	public static void write(HttpServletResponse response, BaseResponse data) {
+	public  static <T> void write(HttpServletResponse response, T data) {
 		response.setHeader("content-type", CONTENT_TYPE);
 		response.setCharacterEncoding(CHARACTER_ENCODING);
 

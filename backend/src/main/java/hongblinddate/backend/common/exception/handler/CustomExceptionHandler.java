@@ -1,17 +1,24 @@
 package hongblinddate.backend.common.exception.handler;
 
+import hongblinddate.backend.common.dto.CustomResponse;
 import hongblinddate.backend.common.exception.CustomException;
-import hongblinddate.backend.dto.ErrorResponse;
+import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice
+@Slf4j
+@RestControllerAdvice
 public class CustomExceptionHandler {
 
 	@ExceptionHandler(CustomException.class)
-	protected ErrorResponse handleCustomException(CustomException e) {
-		return ErrorResponse.of(e.getErrorCode());
+	public CustomResponse<?> handleCustomException(CustomException e) {
+		return CustomResponse.error(e);
 	}
+
+	@ExceptionHandler(Exception.class)
+	public CustomResponse<?> handleGlobalException(Exception e) {
+		return CustomResponse.ok();
+	}
+
 }

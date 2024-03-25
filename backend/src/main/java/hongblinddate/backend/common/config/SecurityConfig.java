@@ -45,6 +45,7 @@ public class SecurityConfig {
 		"/api/auth/login/**",
 		"/api/member/join",
 		"/api/member/duplicate/**",
+		"/error"
 	};
 
 	@Bean
